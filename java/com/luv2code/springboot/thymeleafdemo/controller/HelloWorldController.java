@@ -17,7 +17,7 @@ public class HelloWorldController {
 
     // need a controller method to process the HTML form
     @RequestMapping("/processMovieName")
-    public String processMovieName() {
+    public String processMovieName(HttpServletRequest request, Model model) {
         // read the request parameter from the HTML form
         String theMovie = request.getParameter("movieName");
 
@@ -28,8 +28,8 @@ public class HelloWorldController {
 
         // add message to the model
         model.addAttribute("welcome", welcomeMessage);
-        model.addAttribute("movie", movieResult);
-        model.addAttribute("favorite", favoriteResult);
+        model.addAttribute("movieName", movieResult);
+        model.addAttribute("favoriteMovie", favoriteResult);
         return "helloworld";
     }
 
